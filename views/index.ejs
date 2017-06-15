@@ -1,0 +1,41 @@
+<% include header %>
+
+<h1>FAKE NEWS</h1>
+
+<div class="menu-section">
+  <div class="menu-toggle">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+  </div>
+  <nav>
+    <ul role="navigation" class="hidden">
+      <nav>
+        <li id="title">Categorieën:</li>
+        <% for (var i = 0; i < categorieen.length; i++) { %>
+          <li><a href="/categorieen/<%- i %>"><%- categorieen[i] %></a></li>
+        <% } %>
+      </nav>
+    </ul>
+  </nav>
+</div>
+
+
+
+  <% var teller = 1; %>
+  <% nieuws.forEach(function(item){ %>
+    <section>
+        <h2>
+          <a href=/items/<%- item.id %>><%- item.titel %></a>
+        </h2>
+        <img src="/img/<%- item.afbeelding %>" alt="<%- item.titel %>">
+        <p class="datum"><%- item.datum %></p>
+
+        <p>
+          <%- item.samenvatting %>
+        </p>
+    </section>
+    <% teller++;}); %>
+
+
+<% include footer %>
